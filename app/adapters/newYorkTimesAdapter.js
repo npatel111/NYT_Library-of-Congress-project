@@ -1,0 +1,3 @@
+function getRecentArticle(searchTerm) {
+
+}
