@@ -1,26 +1,21 @@
 $(document).ready(function() {
   search()
+
 })
 
 
 function search() {
   $('form').on('submit', function() {
-    // debugger
     event.preventDefault()
     $("#new-article-info").empty()
     $("#old-article-info").empty()
     $("#digital-image").empty()
     var searchTerm = $("#term").val()
     getDigitalItem(searchTerm)
-    // debugger
     getArticle(searchTerm, "newest")
-    // debugger
-    getArticle(searchTerm, "oldest")
-
+    setTimeout(getArticle, 5000, searchTerm, "oldest")
   })
 }
-
-
 
 function showRecentArticle(article) {
   // debugger
