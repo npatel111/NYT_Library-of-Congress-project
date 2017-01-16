@@ -1,15 +1,11 @@
 $(document).ready(function() {
   search()
-
 })
-
 
 function search() {
   $('form').on('submit', function() {
     event.preventDefault()
-    $("#new-article-info").empty()
-    $("#old-article-info").empty()
-    $("#digital-image").empty()
+    emptyDivs()
     var searchTerm = $("#term").val()
     getDigitalItem(searchTerm)
     getArticle(searchTerm, "newest")
@@ -17,14 +13,14 @@ function search() {
   })
 }
 
-function showRecentArticle(article) {
-  // debugger
-  $("#new-article-info").append(`<br>Headline: ${article.headline}<br>Snippet: ${article.snippet}<br>URL: ${article.web_url}`)
+function emptyDivs() {
+  $("#new-article-info").empty()
+  $("#old-article-info").empty()
+  $("#digital-image").empty()
 }
 
-function showOldestArticle(article) {
-  // debugger
-  $("#old-article-info").append(`<br>Headline: ${article.headline}<br>Snippet: ${article.snippet}<br>URL: ${article.web_url}`)
+function showArticle(where, article) {
+  $(`${where}`).append(`<br>Headline: ${article.headline}<br>Snippet: ${article.snippet}<br>URL: ${article.web_url}`)
 }
 
 function showImage(image) {
