@@ -1,1 +1,1 @@
-let store = {articles: [], images: []}
+let store = {articles: [], images: [], terms: []}
